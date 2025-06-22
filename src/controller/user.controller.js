@@ -31,13 +31,17 @@ if (
     throw new ApiError(400, "All feilds are required")
 }
 
-User.findOne({
+
+
+const existedUser = User.findOne({
     $or: [{ username } , { email }]
 })
 
 if(existedUser){
     throw new ApiError(409, "user with email or username already exists")
 }
+
+
 
 
 const avatarLocalPath = req.files?.avatar[0]?.path;
@@ -61,8 +65,10 @@ if(!avatar){
     coverImage: coverImage?.url || "",
     email,
     password,
-    username: username.toLoweCase(),
+    username: username.toLowerCase(),
 })
+
+
 
  const createdUser = await User.findById(user._id).select(
     "-password -refreshToken"

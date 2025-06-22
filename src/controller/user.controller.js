@@ -1,7 +1,7 @@
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { ApiError } from "../utils/ApiError.js"
 import { User } from "../models/user.model.js"
-import { uploadOnCloudinary} from "../utils/cludinary.js"
+import { uploadOnCloudinary} from "../utils/cloudinary.js"
 import { Apiresponse } from "../utils/ApiResponse.js";
 
 const registerUser = asyncHandler( async (req,res) => {
@@ -41,6 +41,7 @@ if(existedUser){
     throw new ApiError(409, "user with email or username already exists")
 }
 
+// console.log(req.files);
 
 
 

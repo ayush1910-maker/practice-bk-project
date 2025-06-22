@@ -1,12 +1,12 @@
 import { Router } from "express";
 import { registerUser } from "../controller/user.controller.js";
-import {upload} from "../middlewares/multer.middleware.js" 
+import { upload } from "../middlewares/multer.middleware.js" 
 
 
 const router = Router()
 
 router.route("/register").post(
-    // middle ware inject
+    // middleware inject
     upload.fields([
         {
             name: "avatar",

@@ -61,7 +61,7 @@ const coverImage = await uploadOnCloudinary(coverImageLocalPath)
 
 
 if(!avatar){
-    throw new ApiError(400,"Avatar file is required")
+    throw new ApiError(400,"Avatar files is required")
 }
 
  const user = await User.create({
